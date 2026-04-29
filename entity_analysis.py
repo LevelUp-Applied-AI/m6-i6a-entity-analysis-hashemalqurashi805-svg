@@ -88,7 +88,7 @@ def visualize_entity_distribution(stats, output_path="entity_distribution.png"):
     plt.savefig(output_path)
     plt.close()
 
-def generate_report(stats):
+def generate_report(stats, co_occurrence=None):
     """Task 5: Final text report summary."""
     top_5 = stats['top_entities'].head(5)
     report = ["\n--- FINAL ENTITY ANALYSIS REPORT ---", f"Global Labels: {stats['label_counts']}", "\nTop 5 Entities:"]
@@ -121,5 +121,6 @@ if __name__ == "__main__":
             print(trends)
 
             # 6. Final Report
-            print(generate_report(stats))
+            # نقوم بتمرير البيانات المطلوبة للمتغيرين
+            print(generate_report(stats, stats['co_occurrence'])) 
             print("\nAll tasks and challenge extensions completed successfully!")
